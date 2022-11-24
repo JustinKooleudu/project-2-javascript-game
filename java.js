@@ -1,21 +1,6 @@
-var click=0;
-var outOfTime = false;
+var teller = 0   //click teller
 
-function hi(){
-if(!outOfTime){
-click+=1; 
-document.getElementById("score").innerHTML = click;
+function click(){
+    document.getElementById("teller").innerHTML = "lemons: " + teller++;
+    // ^ zegt dat de text moet veranderen naar "lemons: (nummer + 1)"
 }
-}
-
-var time = 60; //time in seconds
-
-var timer = setInterval(function(){
- time--;
- document.getElementById("timer").innerHTML = time + "s";
- if(time==0){
-   clearInterval(timer);
-   document.getElementById("timer").innerHTML = "Time's up!";
-   outOfTime = true;
- }
-}, 1000);
