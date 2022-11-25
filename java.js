@@ -56,9 +56,8 @@ function randomIntFromRange(min, max) {
 }
 
 function Shoot () {
-  let bullet = new Circle(player.x, player.y, 15, 'white');
-  // bullet.mx = mouse.x;
-  // bullet.my = mouse.y;
+  let bullet = new Circle(player.x, player.y, 8, 'white');
+  // says the x and y spawn value and the size than the color
 
   let vx = mouse.x - bullet.x;
   let vy = mouse.y - bullet.y;
@@ -76,9 +75,9 @@ function Shoot () {
 
 // Spawn Enemy
 function SpawnEnemy() {
-  let enemy = new Circle(canvas.width, randomIntFromRange(20, canvas.height - 20), 20, 'red');
+  let enemy = new Circle(canvas.width, randomIntFromRange(40, canvas.height - 20), 10, 'red');
   let level = randomIntFromRange(1, 2);
-  enemy.speed = randomIntFromRange(3, 5);
+  enemy.speed = randomIntFromRange(2, 3);
   enemy.health = level;
   if (level == 2) {
     enemy.color = 'blue';
@@ -89,15 +88,15 @@ function SpawnEnemy() {
 
 let player;
 function Start () {
-  player = new Circle(0, canvas.height/2, 30, '#FFCE00');
+  player = new Circle(0, canvas.height/2, 20, '#FFCE00');
 }
 
-let originalTimer = 150;
+let originalTimer = 120;
 let spawnTimer = originalTimer;
 function Update () {
   requestAnimationFrame(Update);
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  // Bullets
+  // where Bullets disapear
   for (let i = 0; i < bullets.length; i++) {
     let bullet = bullets[i];
 
@@ -157,10 +156,10 @@ function Update () {
 
   player.update();
 
-  ctx.fillStyle = "#FFF";
+  ctx.fillStyle = "#FFFFFF";
   ctx.font = "28px sans-serif";
   ctx.textAlign = "center";
-  ctx.fillText("Points: " + points, canvas.width/2, 50);
+  ctx.fillText("Points: " + points, canvas.width/2, 25);
 }
 
 function MovePlayer(direction) {
