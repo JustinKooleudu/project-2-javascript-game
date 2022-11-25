@@ -1,0 +1,12 @@
+canvas {
+    text-align: center;
+}
+
+body {
+    background-color: aqua;
+    background-image: url("fotos/castledef.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0;
+    height: 100vh;
+}
